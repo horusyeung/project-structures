@@ -1,0 +1,50 @@
+# CodeRabbit Configuration
+# https://docs.coderabbit.ai/guides/configure-coderabbit
+
+language: en
+
+reviews:
+  request_changes_workflow: true
+  high_level_summary: true
+  poem: false
+  review_status: true
+  collapse_walkthrough: false
+  auto_review:
+    enabled: true
+    drafts: false
+
+  path_instructions:
+    - path: "src/common/**"
+      instructions: |
+        - Common components must be pure and reusable — no API calls, no Redux store access.
+        - All components must have data-testid attributes.
+        - No inline styles — use the project's styling approach (MUI sx, StyleSheet, etc.).
+        - All user-facing text must use i18n keys.
+
+    - path: "src/features/**"
+      instructions: |
+        - Redux slices must use createAsyncThunk for async operations.
+        - Prefer `type` over `interface` for TypeScript definitions.
+        - Never use `any` type — use `unknown` with type guards.
+
+    - path: "src/pages/**"
+      instructions: |
+        - Page components should be lazy loaded in route definitions.
+        - Each feature should have its own styles/ folder — no shared styles across features.
+        - Tests should be co-located in __tests__/ folders.
+
+    - path: "src/app/**"
+      instructions: |
+        - Server Components by default — only add 'use client' when interactivity is needed.
+        - Private folders use _ prefix (_components/, _hooks/, _styles/).
+        - Each feature should have its own _styles/ folder — no shared styles across features.
+        - Tests should be co-located in __tests__/ folders.
+
+    - path: "src/screens/**"
+      instructions: |
+        - Screen components should have testID props for testing.
+        - Each feature should have its own styles/ folder — no shared styles across features.
+        - Tests should be co-located in __tests__/ folders.
+
+chat:
+  auto_reply: true

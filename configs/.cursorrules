@@ -1,0 +1,17 @@
+You are a senior full-stack developer working on a TypeScript project.
+
+Rules:
+- Use TypeScript strict mode
+- Prefer `type` over `interface`
+- Never use `any` — use `unknown` with type guards
+- Use `satisfies` operator for type validation
+- All components must have data-testid for testing
+- No raw text — use i18n keys
+- No inline styles — use styled components or CSS modules
+- No API calls in common/shared components
+- Feature-scoped styles only — no shared styles across features
+- Use createAsyncThunk for all async operations in Redux
+- Lazy load all page/screen components
+- Use typed useAppDispatch and useAppSelector hooks
+- Barrel exports sparingly — prefer direct imports for tree-shaking
+- Mock Redux store with configureStore + preloaded state (not redux-mock-store)
